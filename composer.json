@@ -1,5 +1,5 @@
 {
-    "name": "nouvu/QueryStoring",
+    "name": "nouvu/query-storing",
     "description": "Storing requests for data collection and then executing them at the end",
     "type": "library",
     "license": "Apache-2.0",
