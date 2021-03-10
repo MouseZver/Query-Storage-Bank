@@ -21,7 +21,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Nouvu\\Database\\QueryStorageBank\\": "src/QueryStorageBank.php"
+			"Nouvu\\Database\\": "src"
 		}
 	}
 }
