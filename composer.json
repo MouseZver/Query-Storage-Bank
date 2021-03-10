@@ -1,0 +1,27 @@
+{
+    "name": "nouvu/QueryStoring",
+    "description": "Storing requests for data collection and then executing them at the end",
+    "type": "library",
+    "license": "Apache-2.0",
+	"homepage": "https://github.com/MouseZver/Query-Storage-Bank",
+	"keywords": [
+        "Query",
+		"Storage",
+		"Bank",
+		"php7.4"
+    ],
+    "authors": [
+        {
+            "name": "MouseZver",
+            "email": "mouse-zver@xaker.ru"
+        }
+    ],
+	"require": {
+		"php": ">=7.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"Nouvu\\Database\\QueryStorageBank\\": "src/QueryStorageBank.php"
+		}
+	}
+}
