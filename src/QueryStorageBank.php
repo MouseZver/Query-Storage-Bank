@@ -19,7 +19,12 @@ final class QueryStorageBank
 		register_shutdown_function ( [ $this, 'giveAway' ] );
 	}
 	
-	public function set( string $name, /* mixed */ $mixed ): void
+	public function setEvent( string $name, callable $callable ): void
+	{
+		$this -> container[$name] = $callable;
+	}
+	
+	public function save( string $name, /* mixed */ $mixed ): void
 	{
 		$this -> data[$name][] = $mixed;
 	}
@@ -28,9 +33,12 @@ final class QueryStorageBank
 	{
 		foreach ( $this -> container AS $name => $callable )
 		{
-			$callable( $this -> db, $this -> data[$name] ?? null );
-			
-			unset ( $this -> data[$name] );
+			if ( isset ( $this -> data[$name] ) )
+			{
+				$callable( $this -> db, $this -> data[$name] );
+				
+				unset ( $this -> data[$name] );
+			}
 		}
 		
 		$this -> container = [];
