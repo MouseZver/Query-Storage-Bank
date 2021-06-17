@@ -6,16 +6,12 @@ namespace Nouvu\Database;
 
 final class QueryStorageBank
 {
-	private array $data = [];
+	private array $data;
 	
 	private array $container = [];
 	
-	private $db;
-	
-	public function __construct ( $database = null )
+	public function __construct ( private $db = null )
 	{
-		$this -> db = $database;
-		
 		register_shutdown_function ( [ $this, 'giveAway' ] );
 	}
 	
@@ -24,7 +20,7 @@ final class QueryStorageBank
 		$this -> container[$name] = $callable;
 	}
 	
-	public function save( string $name, /* mixed */ $mixed ): void
+	public function save( string $name, mixed $mixed ): void
 	{
 		$this -> data[$name][] = $mixed;
 	}
